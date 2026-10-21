@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="RoyalDining.Desktop.Views.Admin.UserFormDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Width="450"
+             Background="{DynamicResource SurfaceBrush}">
+    <StackPanel Margin="24">
+        <!-- Judul -->
+        <TextBlock x:Name="TxtTitle" Text="Tambah User Baru" 
+                   Style="{StaticResource H2}" 
+                   Foreground="{DynamicResource TextPrimaryBrush}" 
+                   Margin="0,0,0,20"/>
+
+        <TextBlock Text="Nama Lengkap" Style="{StaticResource SecondaryText}" Margin="0,0,0,5"/>
+        <TextBox x:Name="TxtName" Style="{StaticResource ModernTextBox}" 
+                 Foreground="{DynamicResource TextPrimaryBrush}" Margin="0,0,0,15"/>
+
+        <TextBlock Text="Email" Style="{StaticResource SecondaryText}" Margin="0,0,0,5"/>
+        <TextBox x:Name="TxtEmail" Style="{StaticResource ModernTextBox}" 
+                 Foreground="{DynamicResource TextPrimaryBrush}" Margin="0,0,0,15"/>
+
+        <TextBlock Text="Role" Style="{StaticResource SecondaryText}" Margin="0,0,0,5"/>
+        <ComboBox x:Name="CmbRole" Style="{StaticResource ModernComboBox}" Margin="0,0,0,15">
+            <ComboBoxItem Content="Customer"/>
+            <ComboBoxItem Content="Admin"/>
+        </ComboBox>
+
+        <TextBlock x:Name="TxtPasswordLabel" Text="Password" Style="{StaticResource SecondaryText}" Margin="0,0,0,5"/>
+        <PasswordBox x:Name="TxtPassword" Style="{StaticResource ModernPasswordBox}" Margin="0,0,0,5"/>
+        <TextBlock x:Name="TxtPasswordHint" Text="Biarkan kosong jika tidak ingin mengubah password." 
+                   Style="{StaticResource SecondaryText}" FontSize="11" FontStyle="Italic"
+                   Visibility="Collapsed" Margin="0,0,0,10"/>
+        <Border Height="10" x:Name="Spacer"/>
+
+        <!-- Error Message -->
+        <TextBlock x:Name="TxtError" Foreground="{DynamicResource DangerBrush}" 
+                   FontSize="13" TextWrapping="Wrap" Margin="0,5,0,0" Visibility="Collapsed"/>
+
+        <!-- Buttons -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+            <Button Content="BATAL" Style="{StaticResource PrimaryButton}" 
+                    Background="{DynamicResource SurfaceAltBrush}" Foreground="{DynamicResource TextPrimaryBrush}"
+                    Width="100" Margin="0,0,10,0" Click="BtnCancel_Click"/>
+            <Button Content="SIMPAN" Style="{StaticResource PrimaryButton}" 
+                    Width="100" Click="BtnSave_Click"/>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,155 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Images\1CRDwKWXMpkeP2ILnCmwl4Jwi4LQoroLECYofXaz.jpg" />
+    <None Remove="Assets\Images\3nSyScQqTOn3kaq11EjKjO0U8XS6RjQpSt2XtBhZ.jpg" />
+    <None Remove="Assets\Images\4aUmalUrsOAXcLEiiV8lHGvN03czlprOfweNAbDx.jpg" />
+    <None Remove="Assets\Images\4Nb6WbQ5ENpM4wvOi6c3zq8mHEjAAP9KVZHOpPBM.jpg" />
+    <None Remove="Assets\Images\6yZeh3eW9a8KY5U90VBBbNxdB3ijTCSvpWzaQvtT.jpg" />
+    <None Remove="Assets\Images\bFnVHp85SkzZyx9q9LI5yNKTOgRGx3el6IuHRKhO.png" />
+    <None Remove="Assets\Images\Clx2MjEQ2M0VTf4bqkPETY5JXCq7I7UavN9zomiY.jpg" />
+    <None Remove="Assets\Images\D9IhRKhybX0QzzGXfKlslfAIGtxyVCxzGh6efQeg.jpg" />
+    <None Remove="Assets\Images\db8rR1EUYUfrfevcM7V7FwF6bg53Z2YEMUrCkhRB.jpg" />
+    <None Remove="Assets\Images\esROf5eY1ETzHWovMfGXfb7d1s67fbvXBaZwtjdX.jpg" />
+    <None Remove="Assets\Images\FysAauT0YuFcNccAb8Us9mF4XoGeThJXgLKwfXuq.jpg" />
+    <None Remove="Assets\Images\htQz7PRJQsKiZ2eqWfcKSsarKGM2gV7G0irXTAho.jpg" />
+    <None Remove="Assets\Images\huAIP1ftiTQisESHeNl21pxCmcyz5Q3ZZ0OCZN2h.jpg" />
+    <None Remove="Assets\Images\HxFueQtUn2yL5mRGCrh9T1AX09fa7d9pqKcPJz6k.jpg" />
+    <None Remove="Assets\Images\i61yyEz4MmOQ7AvwrCUiQylqWkb8WvNVNQgUYI7w.jpg" />
+    <None Remove="Assets\Images\ihkpFlKOIBKAFjKzZceEQw5xU5JkOvNpmNnEVQtI.webp" />
+    <None Remove="Assets\Images\j2DmpJhgk21ceTyiXG07WKUKfLweRkCMJLgcNLfq.jpg" />
+    <None Remove="Assets\Images\KVN29dDWXiTxMMTjFwTAeuWj94XmVnh7MBP5xCdA.jpg" />
+    <None Remove="Assets\Images\macvAraTxETrGOJxHBI4yTeeTyVBdmTt5YgrkoBL.png" />
+    <None Remove="Assets\Images\oeWlrMBo1BZhUhR8GVAtYQuqCg7yBeM0GvsznjVc.webp" />
+    <None Remove="Assets\Images\Of4E9XWwlRSEJ5bnlE6qgKVg7t6jtll9biWTr3h9.webp" />
+    <None Remove="Assets\Images\pu5aaI6iqJZ4ip7doc15QGwvYc9YhWXjDQDvGFYh.jpg" />
+    <None Remove="Assets\Images\qXLMd3hbsrAIw41O2KvEFfg3l3YgLhkjQIiLIvJg.jpg" />
+    <None Remove="Assets\Images\rGbpxm3jprOuA8yWaFurMOUuK8rTmokk9cGvEWVR.jpg" />
+    <None Remove="Assets\Images\RPfb72iRWpI3H9uOAkeMOoZb4flIodhaSvRmWZ72.jpg" />
+    <None Remove="Assets\Images\SLDSnNjtixug0BVNjEMmgYYRrOTXI2fYxLEoGebS.webp" />
+    <None Remove="Assets\Images\v0MpTYU1S2ReSEoZbAjmFdEKBIDfd2w9YGLprSjn.jpg" />
+    <None Remove="Assets\Images\XXA1Aj6Xx3vnbhyVQddNhI70PxUk0Zfa1hKaVqDs.jpg" />
+    <None Remove="Assets\Images\xYbFnhfF1N2PtWz2RbVpzFXmOrGMduXRYcBU6sQp.jpg" />
+    <None Remove="Assets\Images\yfFAfYIK6MTAVhH8HerB4EGNZbshrUfEdc5ZMpcM.png" />
+    <None Remove="Assets\Images\YISgB5HNtPj2NDwazUJ4hXvAuo2t4ARhWkHASJu4.jpg" />
+    <None Remove="Assets\Images\zafpjcn2S7q6gUgrVd2JlpPXRTRcRdBp900hwGOY.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\Images\3nSyScQqTOn3kaq11EjKjO0U8XS6RjQpSt2XtBhZ.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\4aUmalUrsOAXcLEiiV8lHGvN03czlprOfweNAbDx.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\4Nb6WbQ5ENpM4wvOi6c3zq8mHEjAAP9KVZHOpPBM.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\6yZeh3eW9a8KY5U90VBBbNxdB3ijTCSvpWzaQvtT.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\bFnVHp85SkzZyx9q9LI5yNKTOgRGx3el6IuHRKhO.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\Clx2MjEQ2M0VTf4bqkPETY5JXCq7I7UavN9zomiY.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\D9IhRKhybX0QzzGXfKlslfAIGtxyVCxzGh6efQeg.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\db8rR1EUYUfrfevcM7V7FwF6bg53Z2YEMUrCkhRB.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\esROf5eY1ETzHWovMfGXfb7d1s67fbvXBaZwtjdX.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\FysAauT0YuFcNccAb8Us9mF4XoGeThJXgLKwfXuq.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\htQz7PRJQsKiZ2eqWfcKSsarKGM2gV7G0irXTAho.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\huAIP1ftiTQisESHeNl21pxCmcyz5Q3ZZ0OCZN2h.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\HxFueQtUn2yL5mRGCrh9T1AX09fa7d9pqKcPJz6k.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\i61yyEz4MmOQ7AvwrCUiQylqWkb8WvNVNQgUYI7w.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\ihkpFlKOIBKAFjKzZceEQw5xU5JkOvNpmNnEVQtI.webp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\j2DmpJhgk21ceTyiXG07WKUKfLweRkCMJLgcNLfq.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\KVN29dDWXiTxMMTjFwTAeuWj94XmVnh7MBP5xCdA.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\macvAraTxETrGOJxHBI4yTeeTyVBdmTt5YgrkoBL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\oeWlrMBo1BZhUhR8GVAtYQuqCg7yBeM0GvsznjVc.webp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\Of4E9XWwlRSEJ5bnlE6qgKVg7t6jtll9biWTr3h9.webp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\pu5aaI6iqJZ4ip7doc15QGwvYc9YhWXjDQDvGFYh.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\qXLMd3hbsrAIw41O2KvEFfg3l3YgLhkjQIiLIvJg.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\rGbpxm3jprOuA8yWaFurMOUuK8rTmokk9cGvEWVR.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\RPfb72iRWpI3H9uOAkeMOoZb4flIodhaSvRmWZ72.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\SLDSnNjtixug0BVNjEMmgYYRrOTXI2fYxLEoGebS.webp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\v0MpTYU1S2ReSEoZbAjmFdEKBIDfd2w9YGLprSjn.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\XXA1Aj6Xx3vnbhyVQddNhI70PxUk0Zfa1hKaVqDs.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\xYbFnhfF1N2PtWz2RbVpzFXmOrGMduXRYcBU6sQp.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\yfFAfYIK6MTAVhH8HerB4EGNZbshrUfEdc5ZMpcM.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\YISgB5HNtPj2NDwazUJ4hXvAuo2t4ARhWkHASJu4.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\zafpjcn2S7q6gUgrVd2JlpPXRTRcRdBp900hwGOY.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
+    <PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-rc5.4" />
+    <PackageReference Include="MaterialDesignColors" Version="3.1.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="5.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

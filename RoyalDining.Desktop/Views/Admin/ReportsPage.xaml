@@ -1,0 +1,162 @@
+﻿<UserControl x:Class="RoyalDining.Desktop.Views.Admin.ReportsPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+             Background="{DynamicResource BackgroundBrush}">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="35">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Header -->
+            <StackPanel Grid.Row="0" Margin="0,0,0,25">
+                <TextBlock Text="Laporan Analitik" Style="{StaticResource H1}"/>
+                <TextBlock Text="Pantau performa restoran berdasarkan data penjualan" 
+                           Style="{StaticResource SecondaryText}" Margin="0,5,0,0"/>
+            </StackPanel>
+
+            <!-- Key Metrics -->
+            <UniformGrid Grid.Row="1" Columns="4" Margin="0,0,0,25">
+                <Border Style="{StaticResource ModernCard}" Margin="0,0,15,0">
+                    <StackPanel>
+                        <materialDesign:PackIcon Kind="CashMultiple" Width="30" Height="30" Foreground="#4CAF50"/>
+                        <TextBlock Text="Total Pendapatan" Style="{StaticResource SecondaryText}" Margin="0,10,0,5"/>
+                        <TextBlock Text="{Binding TotalRevenue}" Style="{StaticResource H2}"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource ModernCard}" Margin="0,0,15,0">
+                    <StackPanel>
+                        <materialDesign:PackIcon Kind="ReceiptText" Width="30" Height="30" Foreground="#2196F3"/>
+                        <TextBlock Text="Total Pesanan" Style="{StaticResource SecondaryText}" Margin="0,10,0,5"/>
+                        <TextBlock Text="{Binding TotalOrders}" Style="{StaticResource H2}"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource ModernCard}" Margin="0,0,15,0">
+                    <StackPanel>
+                        <materialDesign:PackIcon Kind="AccountPlus" Width="30" Height="30" Foreground="#9C27B0"/>
+                        <TextBlock Text="Pelanggan Baru (30h)" Style="{StaticResource SecondaryText}" Margin="0,10,0,5"/>
+                        <TextBlock Text="{Binding NewCustomers}" Style="{StaticResource H2}"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource ModernCard}">
+                    <StackPanel>
+                        <materialDesign:PackIcon Kind="ChartLine" Width="30" Height="30" Foreground="#FF9800"/>
+                        <TextBlock Text="Rata-rata Pesanan" Style="{StaticResource SecondaryText}" Margin="0,10,0,5"/>
+                        <TextBlock Text="{Binding AverageOrderValue}" Style="{StaticResource H2}"/>
+                    </StackPanel>
+                </Border>
+            </UniformGrid>
+
+            <!-- Charts Row -->
+            <Grid Grid.Row="2" Margin="0,0,0,25">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Revenue Chart -->
+                <Border Grid.Column="0" Style="{StaticResource ModernCard}" Margin="0,0,20,0">
+                    <StackPanel>
+                        <TextBlock Text="Tren Pendapatan (30 Hari)" Style="{StaticResource H3}" Margin="0,0,0,20"/>
+                        <lvc:CartesianChart Height="280" 
+                                            Series="{Binding RevenueSeries}"
+                                            XAxes="{Binding RevenueXAxes}"
+                                            YAxes="{Binding RevenueYAxes}"
+                                            TooltipPosition="Top"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Category Chart -->
+                <Border Grid.Column="1" Style="{StaticResource ModernCard}">
+                    <StackPanel>
+                        <TextBlock Text="Distribusi per Kategori" Style="{StaticResource H3}" Margin="0,0,0,20"/>
+                        <lvc:PieChart Height="280" Series="{Binding CategorySeries}" 
+                                      LegendPosition="Bottom" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <!-- Tables Row -->
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Top Menu -->
+                <Border Grid.Column="0" Style="{StaticResource ModernCard}" Margin="0,0,20,0" Padding="20,20,20,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Top 5 Menu Terlaris" Style="{StaticResource H3}" Margin="0,0,0,15"/>
+                        <ItemsControl Grid.Row="1" ItemsSource="{Binding TopMenus}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="{DynamicResource BorderBrush}" BorderThickness="0,0,0,1" Padding="0,10">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="80"/>
+                                                <ColumnDefinition Width="100"/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel Grid.Column="0">
+                                                <TextBlock Text="{Binding Name}" Foreground="{DynamicResource TextPrimaryBrush}" FontWeight="SemiBold"/>
+                                                <TextBlock Text="{Binding Category}" Foreground="{DynamicResource TextSecondaryBrush}" FontSize="11"/>
+                                            </StackPanel>
+                                            <TextBlock Grid.Column="1" Text="{Binding QtySold, StringFormat='{}{0} pcs'}" Foreground="{DynamicResource TextSecondaryBrush}" VerticalAlignment="Center"/>
+                                            <TextBlock Grid.Column="2" Text="{Binding Revenue, StringFormat='Rp {0:N0}'}" Foreground="{DynamicResource PrimaryBrush}" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+                </Border>
+
+                <!-- Recent Orders -->
+                <Border Grid.Column="1" Style="{StaticResource ModernCard}" Padding="20,20,20,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Pesanan Terbaru" Style="{StaticResource H3}" Margin="0,0,0,15"/>
+                        <ItemsControl Grid.Row="1" ItemsSource="{Binding RecentOrders}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="{DynamicResource BorderBrush}" BorderThickness="0,0,0,1" Padding="0,10">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="100"/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel Grid.Column="0">
+                                                <TextBlock Text="{Binding User.Name}" Foreground="{DynamicResource TextPrimaryBrush}" FontWeight="SemiBold"/>
+                                                <TextBlock Text="{Binding CreatedAt, StringFormat='{}{0:dd MMM yyyy, HH:mm}'}" Foreground="{DynamicResource TextSecondaryBrush}" FontSize="11"/>
+                                            </StackPanel>
+                                            <StackPanel Grid.Column="1" HorizontalAlignment="Right">
+                                                <TextBlock Text="{Binding TotalPrice, StringFormat='Rp {0:N0}'}" Foreground="{DynamicResource PrimaryBrush}" FontWeight="Bold" HorizontalAlignment="Right"/>
+                                                <TextBlock Text="{Binding Status}" Foreground="{DynamicResource TextSecondaryBrush}" FontSize="11" HorizontalAlignment="Right"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

@@ -1,0 +1,163 @@
+﻿<UserControl x:Class="RoyalDining.Desktop.Views.Admin.AdminDashboardPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+             Background="{DynamicResource BackgroundBrush}">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="35">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!-- Header -->
+                <RowDefinition Height="Auto"/>
+                <!-- Stat Cards -->
+                <RowDefinition Height="Auto"/>
+                <!-- Chart & Quick Actions -->
+            </Grid.RowDefinitions>
+
+            <!-- ============ HEADER ============ -->
+            <StackPanel Grid.Row="0" Margin="0,0,0,25">
+                <TextBlock Text="Dashboard Overview" Style="{StaticResource H1}"/>
+                <TextBlock Text="Selamat datang kembali! Berikut ringkasan performa restoran Anda hari ini." 
+                           Style="{StaticResource SecondaryText}" Margin="0,5,0,0"/>
+            </StackPanel>
+
+            <!-- ============ STAT CARDS ============ -->
+            <UniformGrid Grid.Row="1" Columns="4" Margin="0,0,0,30">
+
+                <!-- Card 1: Categories -->
+                <Border Style="{StaticResource ModernCard}" Margin="0,0,15,0">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Border Background="#FFF3E0" Width="45" Height="45" CornerRadius="10">
+                                <materialDesign:PackIcon Kind="TagMultiple" Width="24" Height="24" 
+                                                         Foreground="#FF9800" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </StackPanel>
+                        <TextBlock Text="Kategori" Style="{StaticResource SecondaryText}" Margin="0,15,0,5"/>
+                        <TextBlock Text="{Binding TotalCategories}" Style="{StaticResource H1}" FontSize="32"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Card 2: Menus -->
+                <Border Style="{StaticResource ModernCard}" Margin="0,0,15,0">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Border Background="#E8F5E9" Width="45" Height="45" CornerRadius="10">
+                                <materialDesign:PackIcon Kind="Food" Width="24" Height="24" 
+                                                         Foreground="#4CAF50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </StackPanel>
+                        <TextBlock Text="Menu" Style="{StaticResource SecondaryText}" Margin="0,15,0,5"/>
+                        <TextBlock Text="{Binding TotalMenus}" Style="{StaticResource H1}" FontSize="32"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Card 3: Orders -->
+                <Border Style="{StaticResource ModernCard}" Margin="0,0,15,0">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Border Background="#E3F2FD" Width="45" Height="45" CornerRadius="10">
+                                <materialDesign:PackIcon Kind="ReceiptText" Width="24" Height="24" 
+                                                         Foreground="#2196F3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </StackPanel>
+                        <TextBlock Text="Pesanan" Style="{StaticResource SecondaryText}" Margin="0,15,0,5"/>
+                        <TextBlock Text="{Binding TotalOrders}" Style="{StaticResource H1}" FontSize="32"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Card 4: Customers -->
+                <Border Style="{StaticResource ModernCard}">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Border Background="#FCE4EC" Width="45" Height="45" CornerRadius="10">
+                                <materialDesign:PackIcon Kind="AccountGroup" Width="24" Height="24" 
+                                                         Foreground="#E91E63" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </StackPanel>
+                        <TextBlock Text="Pelanggan" Style="{StaticResource SecondaryText}" Margin="0,15,0,5"/>
+                        <TextBlock Text="{Binding TotalCustomers}" Style="{StaticResource H1}" FontSize="32"/>
+                    </StackPanel>
+                </Border>
+            </UniformGrid>
+
+            <!-- ============ CHART & QUICK ACTIONS ============ -->
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <!-- Chart Area -->
+                    <ColumnDefinition Width="1*"/>
+                    <!-- Quick Actions -->
+                </Grid.ColumnDefinitions>
+
+                <!-- Chart Card -->
+                <Border Grid.Column="0" Style="{StaticResource ModernCard}" Margin="0,0,20,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Chart Header -->
+                        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,0,0,20">
+                            <StackPanel>
+                                <TextBlock Text="Statistik Pesanan" Style="{StaticResource H3}"/>
+                                <TextBlock Text="7 hari terakhir" Style="{StaticResource SecondaryText}"/>
+                            </StackPanel>
+                            <!-- Bisa tambahkan filter di sini nanti -->
+                        </StackPanel>
+
+                        <!-- Chart Control -->
+                        <lvc:CartesianChart Grid.Row="1" x:Name="OrderChart" Height="250" 
+                                            Series="{Binding ChartSeries}"
+                                            XAxes="{Binding ChartXAxes}"
+                                            YAxes="{Binding ChartYAxes}"
+                                            TooltipPosition="Top"/>
+                    </Grid>
+                </Border>
+
+                <!-- Quick Actions Card -->
+                <Border Grid.Column="1" Style="{StaticResource ModernCard}">
+                    <StackPanel>
+                        <TextBlock Text="Quick Actions" Style="{StaticResource H3}" Margin="0,0,0,20"/>
+
+                        <!-- Action Buttons -->
+                        <Button x:Name="BtnGoCategories" Click="BtnGoCategories_Click" Margin="0,0,0,10" Height="50"
+                                Style="{StaticResource PrimaryButton}" HorizontalContentAlignment="Left">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="TagMultiple" Width="20" Height="20" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                                <TextBlock Text="Kelola Kategori" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="BtnGoMenus" Click="BtnGoMenus_Click" Margin="0,0,0,10" Height="50"
+                                Style="{StaticResource PrimaryButton}" HorizontalContentAlignment="Left">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Food" Width="20" Height="20" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                                <TextBlock Text="Kelola Menu" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="BtnGoOrders" Click="BtnGoOrders_Click" Margin="0,0,0,10" Height="50"
+                                Style="{StaticResource PrimaryButton}" HorizontalContentAlignment="Left">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="ReceiptText" Width="20" Height="20" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                                <TextBlock Text="Lihat Pesanan" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="BtnGoReports" Click="BtnGoReports_Click" Height="50"
+                                Style="{StaticResource PrimaryButton}" HorizontalContentAlignment="Left">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="ChartBar" Width="20" Height="20" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                                <TextBlock Text="Laporan Analitik" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

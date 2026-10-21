@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="RoyalDining.Desktop.Views.Customer.MyOrdersPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Background="{DynamicResource BackgroundBrush}">
+
+    <materialDesign:DialogHost x:Name="DialogHostMain" Identifier="RootDialog" CloseOnClickAway="False">
+        <Grid Margin="35">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Margin="0,0,0,25">
+                <TextBlock Text="Pesanan Aktif" Style="{StaticResource H1}"/>
+                <TextBlock Text="Pesanan yang sedang diproses" Style="{StaticResource SecondaryText}" Margin="0,5,0,0"/>
+            </StackPanel>
+
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                <ItemsControl ItemsSource="{Binding ActiveOrders}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource ModernCard}" Margin="0,0,0,15">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackPanel Grid.Column="0">
+                                        <TextBlock Text="{Binding Id, StringFormat='Order #{0}'}" Style="{StaticResource H3}"/>
+                                        <TextBlock Text="{Binding CreatedAt, StringFormat='{}{0:dd MMM yyyy, HH:mm}'}" Style="{StaticResource SecondaryText}" Margin="0,5,0,0"/>
+                                        <TextBlock Text="{Binding OrderItems.Count, StringFormat='{}{0} item(s)'}" Style="{StaticResource SecondaryText}" Margin="0,2,0,0"/>
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Column="1" HorizontalAlignment="Right">
+                                        <Border x:Name="StatusBorder" Background="#FFF3E0" CornerRadius="8" Padding="10,5" Margin="0,0,0,10" HorizontalAlignment="Right">
+                                            <TextBlock x:Name="TxtStatus" Text="{Binding Status}" Foreground="#FF9800" FontWeight="Bold" FontSize="12"/>
+                                        </Border>
+                                        <TextBlock Text="{Binding TotalPrice, StringFormat='Rp {0:N0}'}" FontWeight="Bold" 
+                                                   Foreground="{DynamicResource PrimaryBrush}" FontSize="18" HorizontalAlignment="Right"/>
+
+                                        <Button Content="Lihat Detail" Style="{StaticResource PrimaryButton}" 
+                                                Height="35" Width="130" Margin="0,10,0,0"
+                                                Click="BtnDetail_Click" Tag="{Binding}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+    </materialDesign:DialogHost>
+</UserControl>

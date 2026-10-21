@@ -1,0 +1,43 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ========== DARK THEME ========== -->
+
+    <!-- Base Colors -->
+    <Color x:Key="PrimaryColor">#D4AF37</Color>
+    <Color x:Key="PrimaryHoverColor">#E5C158</Color>
+    <Color x:Key="BackgroundColor">#121212</Color>
+    <Color x:Key="SurfaceColor">#1E1E1E</Color>
+    <Color x:Key="SurfaceAltColor">#2D2D2D</Color>
+    <Color x:Key="TextPrimaryColor">#F8F9FA</Color>
+    <Color x:Key="TextSecondaryColor">#A0A0A0</Color>
+    <Color x:Key="BorderColor">#333333</Color>
+
+    <!-- Status Colors (lebih terang untuk dark mode) -->
+    <Color x:Key="SuccessColor">#4CAF50</Color>
+    <Color x:Key="DangerColor">#F44336</Color>
+    <Color x:Key="WarningColor">#FFC107</Color>
+    <Color x:Key="InfoColor">#00BCD4</Color>
+
+    <!-- Brushes -->
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}"/>
+    <SolidColorBrush x:Key="PrimaryHoverBrush" Color="{StaticResource PrimaryHoverColor}"/>
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource BackgroundColor}"/>
+    <SolidColorBrush x:Key="SurfaceBrush" Color="{StaticResource SurfaceColor}"/>
+    <SolidColorBrush x:Key="SurfaceAltBrush" Color="{StaticResource SurfaceAltColor}"/>
+    <SolidColorBrush x:Key="TextPrimaryBrush" Color="{StaticResource TextPrimaryColor}"/>
+    <SolidColorBrush x:Key="TextSecondaryBrush" Color="{StaticResource TextSecondaryColor}"/>
+    <SolidColorBrush x:Key="BorderBrush" Color="{StaticResource BorderColor}"/>
+    <SolidColorBrush x:Key="SuccessBrush" Color="{StaticResource SuccessColor}"/>
+    <SolidColorBrush x:Key="DangerBrush" Color="{StaticResource DangerColor}"/>
+    <SolidColorBrush x:Key="WarningBrush" Color="{StaticResource WarningColor}"/>
+    <SolidColorBrush x:Key="InfoBrush" Color="{StaticResource InfoColor}"/>
+
+    <!-- Shadow Effect (lebih gelap untuk dark mode) -->
+    <DropShadowEffect x:Key="CardShadow" 
+                      Color="Black" 
+                      BlurRadius="20" 
+                      ShadowDepth="4" 
+                      Opacity="0.5"/>
+
+</ResourceDictionary>
